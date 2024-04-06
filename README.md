@@ -24,8 +24,52 @@ To implement QR decomposition algorithm using the Gram-Schmidt method.
 ## Program:
 ### Gram-Schmidt Method
 ```
-<img width="570" alt="image" src="https://github.com/SIVAmech123/QRdecomposition/assets/151629067/fb11c4ba-48a7-4125-9c6d-b772b012c833">
+''' 
+Program to QR decomposition using the Gram-Schmidt method
+Developed by: sivakumar R
+RegisterNumber: 23013501
+'''
+import numpy as np
 
+def QR_Decomposition(A):
+
+    n, m = a.shape
+
+    q = np.empty((n,n))
+
+    u = np.empty((n,n))
+
+    u[:,0] = a[:,0]
+
+    q[:,0] = u[:,0]/np.linalg.norm(u[:,0])
+
+    for i in range(1,n):
+
+        u[:,i]=a[:,i]
+
+        for j in range(i):
+
+            u[:,i]-=(a[:,i]@ q[:,j])* q[:,j]
+
+        q[:,i] = u[:,i] / np.linalg.norm(u[:,i])
+
+    r = np.zeros((n,m))
+
+    for i in range(n):
+
+        for j in range(i,m):
+
+            r[i,j] = a[:,j] @ q[:,i]
+
+    print(q)
+
+    print(r)
+    
+    
+    
+a = np.array(eval(input()))
+
+QR_Decomposition(a)
 
 
 
@@ -35,10 +79,9 @@ To implement QR decomposition algorithm using the Gram-Schmidt method.
 ```
 
 ## Output
-```<img width="570" alt="Screenshot 2024-04-06 215459" src="https://github.com/SIVAmech123/QRdecomposition/assets/151629067/a852b341-26b1-4daf-b701-2387c8e4e914">
+<img width="570" alt="Screenshot 2024-04-06 215459" src="https://github.com/SIVAmech123/QRdecomposition/assets/151629067/8804325a-5c1f-42ee-9c45-cec18d1d3a3a">
 
 
-```
 
 ## Result
 Thus the QR decomposition algorithm using the Gram-Schmidt process is written and verified the result.
